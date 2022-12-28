@@ -1,11 +1,5 @@
 # 🚀 SSH for GitHub Actions
 
-[GitHub Action](https://github.com/features/actions) for executing remote ssh commands.
-
-![ssh workflow](./images/ssh-workflow.png)
-
-[![Actions Status](https://github.com/appleboy/ssh-action/workflows/remote%20ssh%20command/badge.svg)](https://github.com/appleboy/ssh-action/actions)
-
 **Important**: Only support **Linux** [docker](https://www.docker.com/) container.
 
 ## Input variables
@@ -27,7 +21,6 @@ See [action.yml](./action.yml) for more detailed information.
 * `script_stop` - stop script after first failure
 * `envs` - pass environment variable to shell script
 * `debug` - enable debug mode
-* `use_insecure_cipher` - include more ciphers with use_insecure_cipher (see [#56](https://github.com/appleboy/ssh-action/issues/56))
 * `cipher` - the allowed cipher algorithms. If unspecified then a sensible
 
 SSH Proxy Setting:
@@ -41,7 +34,7 @@ SSH Proxy Setting:
 * `proxy_key` - content of ssh proxy private key.
 * `proxy_key_path` - path of ssh proxy private key
 * `proxy_fingerprint` - fingerprint SHA256 of the proxy host public key, default is to skip verification
-* `proxy_use_insecure_cipher` - include more ciphers with use_insecure_cipher (see [#56](https://github.com/appleboy/ssh-action/issues/56))
+* `proxy_use_insecure_cipher` - include more ciphers with use_insecure_cipher
 * `proxy_cipher` - the allowed cipher algorithms. If unspecified then a sensible
 
 ## Usage
@@ -57,7 +50,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: executing remote ssh commands using password
-      uses: appleboy/ssh-action@v0.1.6
+      uses: naveenkumarck/ssh-action@v1.0.0
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
